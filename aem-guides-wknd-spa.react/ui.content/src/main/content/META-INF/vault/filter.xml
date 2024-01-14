@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/amr-test-37" mode="merge"/>
+    <filter root="/content/amr-test-37" mode="merge"/>
+    <filter root="/content/dam/amr-test-37/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/amr-test-37" mode="merge"/>
+</workspaceFilter>

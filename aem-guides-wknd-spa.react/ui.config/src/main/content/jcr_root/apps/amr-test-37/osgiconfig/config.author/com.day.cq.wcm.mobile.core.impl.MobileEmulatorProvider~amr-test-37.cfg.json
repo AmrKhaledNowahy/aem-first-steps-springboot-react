@@ -1,0 +1,6 @@
+{
+  "mobile.resourceTypes": [
+    "amr-test-37/components/page"
+  ],
+  "README": "Indicate which page resource types should display the mobile emulators."
+}

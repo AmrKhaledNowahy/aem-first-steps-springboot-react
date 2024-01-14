@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/amr-test-37/clientlibs"/>
+    <filter root="/apps/amr-test-37/components"/>
+    <filter root="/apps/amr-test-37/i18n"/>
+</workspaceFilter>
