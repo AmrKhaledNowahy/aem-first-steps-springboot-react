@@ -146,21 +146,7 @@ class UsersList extends Component {
                     &nbsp;
 
                     <h3>Users List</h3>
-                    {/*<Table className="mt-4">*/}
-                    {/*    <thead>*/}
-                    {/*    <tr>*/}
-                    {/*        <th width="20%">UUID</th>*/}
-                    {/*        <th width="10%">username</th>*/}
-                    {/*        <th width="20%">Email</th>*/}
-                    {/*        <th width="10%">Actions</th>*/}
-                    {/*    </tr>*/}
-                    {/*    </thead>*/}
-                    {/*    <tbody>*/}
-                    {/*    {usersList}*/}
-                    {/*    </tbody>*/}
-                    {/*</Table>*/}
                     &nbsp;
-                    {/*<div style={{display: "flex", flexWrap: "wrap"}}>*/}
                         <Grid container spacing={3}>
                             {usersCardList}
                         </Grid>

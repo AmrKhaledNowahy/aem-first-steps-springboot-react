@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.3",
     "@react-buddy/ide-toolbox": "^2.4.0",
+    "axios": "^1.6.5",
     "custom-event-polyfill": "^1.0.7",
     "history": "^4.10.1",
     "react": "^16.12.0",

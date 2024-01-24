@@ -93,3 +93,4 @@ const TextEditConfig = {
 };
 
 MapTo('amr-test-37/components/text')(LazyTextComponent, TextEditConfig);
+// MapTo('amr-test-37/components/CrudComponent')(CrudComponent, CrudComponentEditConfig);
