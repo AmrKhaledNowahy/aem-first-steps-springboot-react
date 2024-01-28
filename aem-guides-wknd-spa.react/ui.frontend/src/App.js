@@ -25,7 +25,7 @@ class App extends Page {
       }}>
         <Header/>
         {/*<CrudComponent/>*/}
-        <UsersList/>
+        {/*<UsersList/>*/}
         {this.childComponents}
         {this.childPages}
       </div>
