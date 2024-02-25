@@ -1,36 +1,62 @@
 package com.amr.aemcrudbackend.Service;
 
-import com.amr.aemcrudbackend.Entity.User;
+import Request.LoginRequest;
+import Request.RegisterUserRequest;
+import com.amr.aemcrudbackend.Entity.UserStatusEnum;
+import com.amr.aemcrudbackend.Entity.Users;
+import com.amr.aemcrudbackend.Repository.UsersRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+
 @Service
 public class UserService {
+    @Autowired
+    private UsersRepository usersRepository;
 
-    public static List<User> usersList = new ArrayList<>();
-
-    public void setUsersList(String addition) throws Exception {
-        if (addition == null)
+    public Users setUsersList(RegisterUserRequest addition) throws Exception {
+        if (addition == null || addition.getUsername() == null || addition.getPassword() == null)
             throw new Exception("Null Value");
 
-        usersList.add(User.builder()
+        var user = Users.builder()
                 .id(UUID.randomUUID())
-                .name(addition)
-                .email(addition + "@domain.com.sa")
-                .build());
+                .name(addition.getUsername())
+                .password(addition.getPassword())
+                .email(addition.getUsername() + "@stc.com.sa")
+                .status(UserStatusEnum.Pending.ordinal())
+                .imageUrl("https://i.pravatar.cc/48?u=" + generateRandom(10000, 20000))
+                .build();
+        return usersRepository.save(user);
     }
 
-    public List<User> getUsersList() {
-        return usersList;
+    public List<Users> getUsersList() {
+        return usersRepository.findAll();
     }
 
+    @Transactional
     public void deleteUser(String deletedUser) throws Exception {
         if (deletedUser == null)
             throw new Exception("Null Value");
 
-        usersList.removeIf(s -> s.getName().equals(deletedUser));
+        usersRepository.deleteByUsername(deletedUser);
+    }
+
+
+    private int generateRandom(int lower, int upper) {
+        return (int) (Math.random() * (upper - lower)) + lower;
+    }
+
+    public boolean authenticate(LoginRequest request) {
+        var user = usersRepository.findByUsername(request.getUsername());
+
+        if( user == null)
+            return false;
+        else {
+            return request.getPassword().equals(user.getPassword());
+        }
     }
 }
