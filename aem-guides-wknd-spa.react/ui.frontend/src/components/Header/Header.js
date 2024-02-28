@@ -8,7 +8,7 @@ export default class Header extends Component {
         return (
             <header className="Header">
                 <div className="Header-container">
-                    <h2>AEM Dynamic Server CRUD APP</h2>
+                    <h2>Amr AEM Playground</h2>
                 </div>
             </header>
         );
