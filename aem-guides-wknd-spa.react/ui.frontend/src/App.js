@@ -5,13 +5,9 @@ import StyledGenericTable from "./components/GenericTable/StyledGenericTable";
 
 // This component is the application entry point
 class App extends Page {
-     mapping = 'empty-mapping';
-    // mapping = {
-    //     name: "Username",
-    //     email: "Work Mail",
-    //     id: "Employee UUID",
-    //     gender: "Gender",
-    // };
+     // mapping = 'empty-mapping';
+    mapping = "User UUID, Username, Email";
+
     render() {
     return (
       <div style={{
