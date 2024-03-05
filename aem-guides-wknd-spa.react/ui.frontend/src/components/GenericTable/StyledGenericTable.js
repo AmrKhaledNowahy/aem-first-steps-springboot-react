@@ -45,8 +45,10 @@ function StyledGenericTableWrapper({apiUrl, mapping}) {
         const keyValuePairs = {};
         const mappingArray = mapping.split(',');
         const responseKeys = Object.keys(data[0] || []);
+        const columnsDisplayedCount = responseKeys.length;
+
         // construct mapping json from mapping string
-        for (let i = 0; i < mappingArray.length; i++) {
+        for (let i = 0; i < columnsDisplayedCount; i++) {
             keyValuePairs[Object.values(responseKeys[i]).join('')]= mappingArray[i];
         }
 

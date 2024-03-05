@@ -6,7 +6,7 @@ import StyledGenericTable from "./components/GenericTable/StyledGenericTable";
 // This component is the application entry point
 class App extends Page {
      // mapping = 'empty-mapping';
-    mapping = "User UUID, Username, Email";
+    mapping = "User UUID, Username, Email, test skipped, skipped";
 
     render() {
     return (
