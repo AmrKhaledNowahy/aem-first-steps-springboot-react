@@ -23,10 +23,13 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 )
 public class GenericTableModelImpl implements GenericTableModel {
     @ValueMapValue
-    private String apiUrl; //maps variable to jcr property named "label" persisted by Dialog
+    private String apiUrl; 
 
     @ValueMapValue
-    private String mapping; //maps variable to jcr property named "label" persisted by Dialog
+    private String mapping; 
+
+    @ValueMapValue
+    private String title; 
 
     static final String RESOURCE_TYPE = "amr-test-37/components/generic-table";
 
@@ -40,6 +43,11 @@ public class GenericTableModelImpl implements GenericTableModel {
     @Override
     public String getMapping() {
         return StringUtils.isNotBlank(mapping) ? mapping : "empty-mapping";
+    }
+
+    @Override
+    public String getTitle() {
+        return StringUtils.isNotBlank(title) ? title : "Table Title";
     }
 
 

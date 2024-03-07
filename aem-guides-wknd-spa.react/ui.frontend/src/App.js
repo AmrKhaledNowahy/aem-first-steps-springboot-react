@@ -18,7 +18,7 @@ class App extends Page {
       }}>
         <Header/>
           <h3>Test Column Name Mapping</h3>
-          <StyledGenericTable apiUrl={"http://localhost:8088/users"} mapping={this.mapping}/>
+          <StyledGenericTable apiUrl={"http://localhost:8088/users"} mapping={this.mapping} title={"Test Generic Table"}/>
           {this.childComponents}
           {this.childPages}
       </div>

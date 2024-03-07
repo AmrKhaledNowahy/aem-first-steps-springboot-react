@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {forwardRef, useEffect, useState} from "react";
 import MaterialTable from "material-table";
 import {createTheme, ThemeProvider} from "@mui/material";
 import axios from "axios";
 import {MapTo} from "@adobe/aem-react-editable-components";
+import {ArrowBack, ArrowForward, Clear, FirstPage, Forward, LastPage, Print, Search} from "@material-ui/icons";
 
-function StyledGenericTableWrapper({apiUrl, mapping}) {
+function StyledGenericTableWrapper({apiUrl, mapping, title}) {
     const [data, setData] = useState([]);
 
     // Fetch the data from the api url when the component mounts
@@ -17,7 +18,7 @@ function StyledGenericTableWrapper({apiUrl, mapping}) {
             .catch((error) => {
                 console.error(error);
             });
-    }, [apiUrl, data]);
+    }, [apiUrl, data.length]);
 
 
     const customTheme = createTheme({
@@ -66,15 +67,28 @@ function StyledGenericTableWrapper({apiUrl, mapping}) {
         }))
         : data[0] && overrideColumnNames();
 
+    const tableIcons = {
+        FirstPage : () => <i className="material-icons">First Page</i>,
+            LastPage : () => <i className="material-icons">Last Page</i>,
+        PreviousPage : () => <i className="material-icons">Previous Page</i>,
+        NextPage : () => <i className="material-icons">Next Page</i>,
+        Search : () => <i className="material-icons">Search</i>,
+        Export : () => <i className="material-icons">Export</i>,
+        Clear : () => <i className="material-icons">Clear</i>,
+        Delete : () => <i className="material-icons">Clear</i>,
+    };
+
     return (
         <div>
             <ThemeProvider theme={customTheme} >
             <MaterialTable
-                title="Generic Table with Column Mapping"
+                title= {title}
                 columns={columns}
                 data={data}
+                icons={tableIcons}
                 options={{
                     sorting: true,
+                    showTitle: !!title,
                     exportButton: true,
                     exportAllData: true
                 }}
